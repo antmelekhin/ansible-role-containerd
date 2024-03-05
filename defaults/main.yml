@@ -1,0 +1,4 @@
+---
+containerd_version: ''
+containerd_repository_mirror_url: 'https://download.docker.com/linux'
+containerd_repository_release_channel: 'stable'

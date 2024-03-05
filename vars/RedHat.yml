@@ -1,0 +1,4 @@
+---
+_containerd_yum_repository_distribution: "{{ (ansible_distribution == 'Fedora') | ternary('fedora', 'centos') }}"
+_containerd_yum_repository_gpgkey: '{{ containerd_repository_mirror_url }}/{{ _containerd_yum_repository_distribution }}/gpg'
+_containerd_yum_repository: '{{ containerd_repository_mirror_url }}/{{ _containerd_yum_repository_distribution }}/$releasever/$basearch/{{ containerd_repository_release_channel }}'

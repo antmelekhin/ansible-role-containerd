@@ -1,0 +1,8 @@
+{{ ansible_managed | comment }}
+
+[docker-ce-{{ containerd_repository_release_channel }}]
+name=Docker CE {{ containerd_repository_release_channel | title }} - $basearch
+baseurl={{ _containerd_yum_repository }}
+enabled=1
+gpgcheck=1
+gpgkey={{ _containerd_yum_repository_gpgkey }}

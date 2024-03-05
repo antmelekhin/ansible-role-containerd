@@ -1,0 +1,14 @@
+---
+- name: 'Include OS-specific Containerd variables'
+  ansible.builtin.include_vars: '{{ distribution }}'
+  with_first_found:
+    - '{{ ansible_distribution }}.yml'
+    - '{{ ansible_os_family }}.yml'
+  loop_control:
+    loop_var: distribution
+
+- name: 'Include tasks to install Containerd'
+  ansible.builtin.include_tasks: 'install-{{ ansible_os_family }}.yml'
+
+- name: 'Include OS-specific tasks for Containerd'
+  ansible.builtin.import_tasks: 'configure.yml'
