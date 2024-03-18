@@ -1,7 +1,7 @@
 Containrd
 =========
 
-An Ansible role to install Containerd.
+An Ansible role to install and configure Containerd.
 
 Requirements
 ------------
