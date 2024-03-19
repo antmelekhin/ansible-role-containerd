@@ -1,9 +1,19 @@
 ---
-- name: 'Post-installation tasks for Containerd'
+- name: 'Configure and start Containerd'
   become: true
   block:
+    - name: 'Configure Containerd'
+      ansible.builtin.template:
+        src: 'config.toml.j2'
+        dest: '/etc/containerd/config.toml'
+        owner: root
+        group: root
+        mode: 0640
+      notify: 'Restart Containerd'
+
     - name: 'Ensure Containerd is running and enabled at boot'
       ansible.builtin.systemd:
         name: containerd
         state: started
         enabled: true
+      when: not ansible_check_mode
