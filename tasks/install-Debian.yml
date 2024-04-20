@@ -12,8 +12,8 @@
 
     - name: 'Add Containerd APT key'
       ansible.builtin.apt_key:
-        url: '{{ _containerd_apt_repository_gpgkey }}'
-        keyring: '{{ _containerd_apt_local_gpgkey }}'
+        url: '{{ containerd_repository_gpgkey_url }}'
+        keyring: '{{ _containerd_local_gpgkey_path }}'
         state: present
       when: not ansible_check_mode
 
