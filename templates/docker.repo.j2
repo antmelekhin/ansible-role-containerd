@@ -2,7 +2,7 @@
 
 [docker-ce-{{ containerd_repository_release_channel }}]
 name=Docker CE {{ containerd_repository_release_channel | title }} - $basearch
-baseurl={{ _containerd_yum_repository }}
+baseurl={{ _containerd_repository }}
 enabled=1
 gpgcheck=1
-gpgkey={{ _containerd_yum_repository_gpgkey }}
+gpgkey={{ containerd_repository_gpgkey_url }}

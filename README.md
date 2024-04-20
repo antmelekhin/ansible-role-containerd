@@ -26,6 +26,7 @@ Role Variables
 
 - `containerd_version` The specific version of `Containerd` to install. By default, role install the latest version.
 - `containerd_repository_mirror_url` Mirror of Docker repository that contains `Containerd` package (default: `https://download.docker.com/linux`).
+- `containerd_repository_gpgkey_url` URL to `Containerd` GPG public key file (see default values in `vars/*.yml`).
 - `containerd_repository_release_channel` Docker repository release channel.
 
   Available values:
