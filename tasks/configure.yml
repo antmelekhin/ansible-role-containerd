@@ -4,6 +4,6 @@
   block:
     - name: 'Ensure Containerd is running and enabled at boot'
       ansible.builtin.systemd:
-        name: containerd
-        state: started
+        name: 'containerd'
+        state: 'started'
         enabled: true

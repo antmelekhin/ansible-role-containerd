@@ -5,16 +5,16 @@
     - name: 'Ensure dependencies are installed'
       ansible.builtin.apt:
         name:
-          - ca-certificates
-          - gnupg
+          - 'ca-certificates'
+          - 'gnupg'
         update_cache: true
-        state: present
+        state: 'present'
 
     - name: 'Add Containerd APT key'
       ansible.builtin.apt_key:
         url: '{{ containerd_repository_gpgkey_url }}'
         keyring: '{{ _containerd_local_gpgkey_path }}'
-        state: present
+        state: 'present'
       when: not ansible_check_mode
 
     - name: 'Add Containerd APT repository'
