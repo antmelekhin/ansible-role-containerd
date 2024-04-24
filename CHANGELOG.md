@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.0.1...v1.0.2) (2024-04-24)
+
+
+### Fixes
+
+* **test:** run linters in its own workflow ([#3](https://github.com/antmelekhin/ansible-role-containerd/issues/3)) ([9204ced](https://github.com/antmelekhin/ansible-role-containerd/commit/9204ced419366313fd7480d906110ce07fb3fedc))
+
 ## [1.0.1](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.0.0...v1.0.1) (2024-04-20)
 
 
