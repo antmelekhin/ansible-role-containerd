@@ -1,5 +1,3 @@
-# ctr image pull docker.io/library/hello-world:latest
-# ctr run --rm docker.io/library/hello-world:latest hello-world
 ---
 - name: 'Verify'
   hosts: all
@@ -20,21 +18,23 @@
       ansible.builtin.command:
         cmd: '/usr/bin/containerd --version'
       changed_when: false
-      register: _containerd_version_check
+      register: __containerd_version_check
 
     - name: 'Version output'
       ansible.builtin.debug:
-        var: _containerd_version_check.stdout_lines[0]
+        var: __containerd_version_check.stdout_lines[0]
 
     - name: 'Pull hello-world image'
-      shell: ctr image pull docker.io/library/hello-world:latest
+      ansible.builtin.command:
+        cmd: '/usr/bin/ctr image pull docker.io/library/hello-world:latest'
       changed_when: false
 
     - name: 'Run hello-world container'
-      shell: ctr run --rm docker.io/library/hello-world:latest hello-world
+      ansible.builtin.command:
+        cmd: '/usr/bin/ctr run --rm docker.io/library/hello-world:latest hello-world'
       changed_when: false
-      register: _hello_world
+      register: __hello_world
 
     - name: 'Hello world output'
       ansible.builtin.debug:
-        var: _hello_world.stdout_lines
+        var: __hello_world.stdout_lines
