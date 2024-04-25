@@ -7,3 +7,4 @@
         name: 'containerd'
         state: 'started'
         enabled: true
+      when: not ansible_check_mode
