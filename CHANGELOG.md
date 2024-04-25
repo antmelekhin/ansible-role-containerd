@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.3](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.0.2...v1.0.3) (2024-04-25)
+
+
+### Documentation
+
+* **README:** fixed examples view ([4d6153d](https://github.com/antmelekhin/ansible-role-containerd/commit/4d6153dfc9625dccb9d7960877588e5795e35773))
+
+
+### Fixes
+
+* fixed running a role in `check_mode` ([b6280dd](https://github.com/antmelekhin/ansible-role-containerd/commit/b6280ddb22aa357e6ed5674ac278ebada0be0665))
+
 ## [1.0.2](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.0.1...v1.0.2) (2024-04-24)
 
 

@@ -41,16 +41,16 @@ None.
 Example Playbook
 ----------------
 
-- Install `Containerd`:
+Install `Containerd`:
 
-  ```yaml
-  ---
-  - name: 'Install Containerd'
-    hosts: all
+```yaml
+---
+- name: 'Install Containerd'
+  hosts: all
 
-    roles:
-      - role: antmelekhin.containerd
-  ```
+  roles:
+    - role: antmelekhin.containerd
+```
 
 License
 -------
