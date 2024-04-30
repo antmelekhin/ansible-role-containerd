@@ -153,6 +153,14 @@ temp = ""
       [plugins."io.containerd.grpc.v1.cri".registry.headers]
 
       [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
+{% for registry in containerd_registries_mirrors %}
+        [plugins."io.containerd.grpc.v1.cri".registry.mirrors."{{ registry.namespace }}"]
+{% set endpoint = [] %}
+{% for mirror in registry.mirrors %}
+{% if endpoint.append(mirror.host) %}{% endif %}
+{% endfor %}
+          endpoint = ["{{ endpoint | unique | join('","') }}"]
+{% endfor %}
 
     [plugins."io.containerd.grpc.v1.cri".x509_key_pair_streaming]
       tls_cert_file = ""

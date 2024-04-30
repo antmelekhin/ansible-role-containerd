@@ -6,9 +6,12 @@ containerd_repository_release_channel: 'stable'
 
 containerd_root_path: '/var/lib/containerd'
 containerd_state_path: '/run/containerd'
+containerd_config_path: '/etc/containerd'
+
 containerd_oom_score: 0
 
 containerd_grpc_max_recv_message_size: 16777216
 containerd_grpc_max_send_message_size: 16777216
 
 containerd_debug_level: 'info'
+containerd_registries_mirrors: []
