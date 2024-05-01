@@ -10,9 +10,26 @@ containerd_config_path: '/etc/containerd'
 
 containerd_oom_score: 0
 
+containerd_debug_level: 'info'
+
 containerd_grpc_max_recv_message_size: 16777216
 containerd_grpc_max_send_message_size: 16777216
 
-containerd_debug_level: 'info'
+containerd_metrics_address: ''
+containerd_metrics_grpc_histogram: false
+
+containerd_max_concurrent_downloads: 3
+containerd_max_container_log_line_size: 16384
+containerd_sandbox_image: 'registry.k8s.io/pause:3.6'
+
+containerd_default_runtime_name: 'runc'
+containerd_snapshotter: 'overlayfs'
+
+containerd_runtimes:
+  - name: 'runc'
+    type: 'io.containerd.runc.v2'
+    options:
+      BynaryName: '/usr/bin/runc'
+      SystemdCgroup: true
 
 containerd_registries_mirrors: []
