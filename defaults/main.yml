@@ -28,6 +28,8 @@ containerd_snapshotter: 'overlayfs'
 containerd_runtimes:
   - name: 'runc'
     type: 'io.containerd.runc.v2'
+    engine: ''
+    root: ''
     options:
       BynaryName: '/usr/bin/runc'
       SystemdCgroup: true
