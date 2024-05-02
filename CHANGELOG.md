@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.0.3...v1.1.0) (2024-05-02)
+
+
+### Features
+
+* add `config.toml.j2` ([#1](https://github.com/antmelekhin/ansible-role-containerd/issues/1)) ([1255bef](https://github.com/antmelekhin/ansible-role-containerd/commit/1255bef409c6ba896693b2a3e8f4f9fd2f36c36f))
+
+
+### Styles
+
+* add newline to end of file ([8b0eea8](https://github.com/antmelekhin/ansible-role-containerd/commit/8b0eea8731e64d69a2f28c76a6503fa64bd2d84c))
+
 ## [1.0.3](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.0.2...v1.0.3) (2024-04-25)
 
 
