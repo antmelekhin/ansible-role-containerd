@@ -5,5 +5,5 @@
 - name: 'Include tasks to install Containerd'
   ansible.builtin.include_tasks: 'install-{{ ansible_os_family }}.yml'
 
-- name: 'Include OS-specific tasks for Containerd'
+- name: 'Include tasks to configure Containerd'
   ansible.builtin.import_tasks: 'configure.yml'

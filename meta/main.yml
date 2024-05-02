@@ -2,7 +2,7 @@
 galaxy_info:
   author: antmelekhin
   role_name: containerd
-  description: An Ansible role to install Containerd.
+  description: An Ansible role to install and configure Containerd.
 
   license: MIT
 

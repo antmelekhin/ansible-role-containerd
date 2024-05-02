@@ -1,0 +1,57 @@
+{{ ansible_managed | comment }}
+
+version = 2
+root = "{{ containerd_root_path }}"
+state = "{{ containerd_state_path }}"
+oom_score = {{ containerd_oom_score }}
+
+[debug]
+  level = "{{ containerd_debug_level }}"
+
+[grpc]
+  address = "{{ containerd_state_path }}/containerd.sock"
+  max_recv_message_size = {{ containerd_grpc_max_recv_message_size }}
+  max_send_message_size = {{ containerd_grpc_max_send_message_size }}
+
+[metrics]
+  address = "{{ containerd_metrics_address }}"
+  grpc_histogram = {{ containerd_metrics_grpc_histogram | lower }}
+
+[plugins]
+  [plugins."io.containerd.grpc.v1.cri"]
+    max_concurrent_downloads = {{ containerd_max_concurrent_downloads }}
+    max_container_log_line_size = {{ containerd_max_container_log_line_size }}
+    sandbox_image = "{{ containerd_sandbox_image }}"
+
+    [plugins."io.containerd.grpc.v1.cri".containerd]
+      default_runtime_name = "{{ containerd_default_runtime_name }}"
+      snapshotter = "{{ containerd_snapshotter }}"
+
+      [plugins."io.containerd.grpc.v1.cri".containerd.runtimes]
+{% for runtime in containerd_runtimes %}
+        [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.{{ runtime.name }}]
+          runtime_type = "{{ runtime.type }}"
+          runtime_engine = "{{ runtime.engine }}"
+          runtime_root = "{{ runtime.root }}"
+
+          [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.{{ runtime.name }}.options]
+{% for key, value in runtime.options.items() %}
+{% if value | bool %}
+            {{ key }} = {{ value | lower }}
+{% else %}
+            {{ key }} = "{{ value }}"
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+    [plugins."io.containerd.grpc.v1.cri".image_decryption]
+      key_model = "node"
+
+{% if containerd_registries_mirrors | length %}
+    [plugins."io.containerd.grpc.v1.cri".registry]
+      config_path = "{{ containerd_config_path }}/certs.d"
+
+      [plugins."io.containerd.grpc.v1.cri".registry.auths]
+
+      [plugins."io.containerd.grpc.v1.cri".registry.configs]
+{% endif %}
