@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.1.0...v1.2.0) (2024-05-08)
+
+
+### Features
+
+* add `containerd_registries_auth` variable ([beb7d34](https://github.com/antmelekhin/ansible-role-containerd/commit/beb7d347c5894ca17f14f963f4609e3847fa1faa))
+
 ## [1.1.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.0.3...v1.1.0) (2024-05-02)
 
 
