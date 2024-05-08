@@ -35,3 +35,5 @@ containerd_runtimes:
       SystemdCgroup: true
 
 containerd_registries_mirrors: []
+
+containerd_registries_auth: []

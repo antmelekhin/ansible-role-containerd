@@ -47,11 +47,20 @@ oom_score = {{ containerd_oom_score }}
     [plugins."io.containerd.grpc.v1.cri".image_decryption]
       key_model = "node"
 
-{% if containerd_registries_mirrors | length %}
     [plugins."io.containerd.grpc.v1.cri".registry]
+{% if containerd_registries_mirrors | length %}
       config_path = "{{ containerd_config_path }}/certs.d"
-
-      [plugins."io.containerd.grpc.v1.cri".registry.auths]
+{% endif %}
 
       [plugins."io.containerd.grpc.v1.cri".registry.configs]
+{% for registry in containerd_registries_auth if registry['registry'] is defined %}
+{% if (registry['username'] is defined and registry['password'] is defined) or registry['auth'] is defined %}
+        [plugins."io.containerd.grpc.v1.cri".registry.configs."{{ registry['registry'] }}".auth]
+{% if registry['username'] is defined and registry['password'] is defined %}
+          username = "{{ registry['username'] }}"
+          password = "{{ registry['password'] }}"
+{% else %}
+          auth = "{{ registry['auth'] }}"
 {% endif %}
+{% endif %}
+{% endfor %}
