@@ -1,7 +1,7 @@
-Containrd
-=========
+Containerd
+==========
 
-An Ansible role to install and configure [Containerd](https://github.com/containerd/containerd).
+An Ansible role to install [Containerd](https://github.com/containerd/containerd) from the Docker repository and configure it.
 
 Requirements
 ------------
@@ -24,48 +24,66 @@ Requirements
 Role Variables
 --------------
 
-- `containerd_version` The specific version of `Containerd` to install. By default, role install the latest version.
-- `containerd_repository_mirror_url` Mirror of Docker repository that contains `Containerd` package (default: `https://download.docker.com/linux`).
-- `containerd_repository_gpgkey_url` URL to `Containerd` GPG public key file (see default values in `vars/*.yml`).
+Variables used to install Containerd:
+
+- `containerd_version` The version of the Containerd package. By default, Containerd is installed with the latest available version.
+- `containerd_repository_mirror_url` Docker repository mirror (default: `https://download.docker.com/linux`).
+- `containerd_repository_gpgkey_url` URL to Docker repository GPG key file (see default values in `vars/*.yml`).
 - `containerd_repository_release_channel` Docker repository release channel.
 
   Available values:
+
   - `stable` (default)
   - `test`
+
+Variables used to configure Containerd:
 
 - `containerd_root_path` The root directory for containerd metadata (default: `/var/lib/containerd`).
 - `containerd_state_path` The state directory for containerd (default: `/run/containerd`).
 - `containerd_config_path` The config directory for containerd (default: `/etc/containerd`).
 - `containerd_oom_score` The out of memory score applied to the containerd daemon process (default: `0`).
 - `containerd_debug_level` The debug log level. Supported levels are: `trace`, `debug`, `info`, `warn`, `error`, `fatal`, `panic` (default: `info`).
-- `containerd_grpc_max_recv_message_size` and `containerd_grpc_max_send_message_size` (default: `16777216`).
-- `containerd_metrics_address` Metrics endpoint does not listen by default (default: `''`).
+- `containerd_grpc_max_recv_message_size` and `containerd_grpc_max_send_message_size` Maximum gRPC receive and send message size in bytes (default: `16777216`).
+- `containerd_metrics_address` Metrics tcp address (default: `''`).
 - `containerd_metrics_grpc_histogram` Turn on or off gRPC histogram metrics (default: `false`).
 - `containerd_max_concurrent_downloads` Restricts the number of concurrent downloads for each image (default: `3`).
 - `containerd_max_container_log_line_size` The maximum log line size in bytes for a container (default: `16384`).
 - `containerd_sandbox_image` The image used by sandbox container (default: `registry.k8s.io/pause:3.6`).
 - `containerd_default_runtime_name` The default runtime name to use (default: `runc`).
 - `containerd_snapshotter` The default snapshotter used by containerd (default: `overlayfs`).
-- `containerd_runtimes` Runtimes configuration settings.
+- `containerd_runtimes` A dictionary that contains runtimes configuration settings.
 
   Available values:
+
   - `name` The name of runtime (default: `runc`).
   - `type` The runtime type to use in containerd (default: `io.containerd.runc.v2`).
   - `engine`
   - `root`
-  - `options` The options specific to runtime.
+  - `options` The options specific to the runtime.
 
-- `containerd_registries_mirrors` See official [documentation](https://github.com/containerd/containerd/blob/main/docs/hosts.md) (default: `[]`).
+- `containerd_registries_mirrors` A dictionary that contains registry hosts configuration. See official [documentation](https://github.com/containerd/containerd/blob/main/docs/hosts.md) (default: `[]`).
 
   Available values:
-  - `namespace`
-  - `server` The default server for this registry host namespace (default: `''`).
-  - `mirrors`
 
-    - `host`
+  - `namespace` A registry host namespace.
+  - `server` The default server for this registry host namespace (default: `''`).
+  - `mirrors` This section defines the names of registries.
+
+    Available values
+
+    - `host` The hostname of the registry. It must be a valid domain name or an IP address.
     - `capabilities` The setting that specifies what operations a host can perform (default: `["pull", "resolve"]`).
-    - `skip_verify` skips verifications of the registry's certificate chain and host name when set to `true` (default: `false`).
+    - `skip_verify` Boolean that defines if TLS verification should be skipped for the registry (default: `false`).
     - `override_path` is used to indicate the host's API root endpoint is defined in the URL path rather than by the API specification (default: `false`).
+
+- `containerd_registries_auth` A dictionary that contains a credential for a specific registry. See official [documetation](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md#configure-registry-credentials) (default: `[]`).
+
+  Available values
+
+  - `registry` The hostname of the registry. It must be a valid domain name or an IP address.
+  - `username` Username of the private registry basic auth.
+  - `password` User password of the private registry basic auth.
+  - `auth` Authentication token of the private registry basic auth.
 
 Dependencies
 ------------
@@ -75,7 +93,7 @@ None.
 Example Playbook
 ----------------
 
-Install `Containerd`:
+Install Containerd:
 
 ```yaml
 ---

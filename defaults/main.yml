@@ -1,9 +1,11 @@
 ---
+# Install Containerd using the Docker repository
 containerd_version: ''
 containerd_repository_mirror_url: 'https://download.docker.com/linux'
 containerd_repository_gpgkey_url: '{{ _containerd_repository_gpgkey_url }}'
 containerd_repository_release_channel: 'stable'
 
+# Containerd directories
 containerd_root_path: '/var/lib/containerd'
 containerd_state_path: '/run/containerd'
 containerd_config_path: '/etc/containerd'
@@ -34,6 +36,6 @@ containerd_runtimes:
       BynaryName: '/usr/bin/runc'
       SystemdCgroup: true
 
+# Configure image registry
 containerd_registries_mirrors: []
-
 containerd_registries_auth: []
