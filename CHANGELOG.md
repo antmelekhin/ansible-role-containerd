@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.1](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.2.0...v1.2.1) (2024-05-13)
+
+
+### Documentation
+
+* **README:** update variables documentation ([c96c5c1](https://github.com/antmelekhin/ansible-role-containerd/commit/c96c5c1fe23e6ffad02539e0903ca37859636e3e))
+
+
+### Styles
+
+* rename tasks ([57ff371](https://github.com/antmelekhin/ansible-role-containerd/commit/57ff37179bcb08605aa850bc37bfb06d054d2280))
+
 ## [1.2.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.1.0...v1.2.0) (2024-05-08)
 
 
