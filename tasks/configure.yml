@@ -11,7 +11,7 @@
         mode: 0640
       notify: 'Restart Containerd'
 
-    - name: 'Configure containerd registries'
+    - name: 'Configure Containerd registries'
       when: containerd_registries_mirrors | length
       block:
         - name: 'Create registry directories'
@@ -36,7 +36,7 @@
           loop_control:
             loop_var: containerd_registry
 
-    - name: 'Ensure Containerd is running and enabled at boot'
+    - name: 'Ensure the Containerd is running and enabled at boot'
       ansible.builtin.systemd:
         name: 'containerd'
         state: 'started'

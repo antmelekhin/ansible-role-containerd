@@ -1,23 +1,24 @@
 ---
-- name: 'Configure APT repository and install Containerd package'
+- name: 'Debian | Configure the repository and install the Containerd package'
   become: true
   block:
-    - name: 'Ensure dependencies are installed'
+    - name: 'Debian | Ensure dependencies are installed'
       ansible.builtin.apt:
         name:
+          - 'apt-transport-https'
           - 'ca-certificates'
           - 'gnupg'
         update_cache: true
         state: 'present'
       when: not ansible_check_mode
 
-    - name: 'Add Containerd APT key'
+    - name: 'Debian | Add the Containerd repository GPG key'
       ansible.builtin.apt_key:
         url: '{{ containerd_repository_gpgkey_url }}'
         keyring: '{{ _containerd_local_gpgkey_path }}'
         state: 'present'
 
-    - name: 'Add Containerd APT repository'
+    - name: 'Debian | Add the Containerd repository'
       ansible.builtin.template:
         src: 'docker.list.j2'
         dest: '/etc/apt/sources.list.d/docker.list'
@@ -25,7 +26,7 @@
         group: 'root'
         mode: 0644
 
-    - name: 'Install Containerd package'
+    - name: 'Debian | Install the Containerd package'
       ansible.builtin.apt:
         name: "containerd.io{{ ('=' + containerd_version) if (containerd_version | length) else '' }}"
         allow_downgrade: true
