@@ -1,9 +1,9 @@
 ---
-- name: 'Include the Containerd OS-specific variables'
+- name: 'Load the Containerd OS-specific variables'
   ansible.builtin.include_vars: '{{ ansible_os_family }}.yml'
 
-- name: 'Include tasks to install Containerd'
+- name: 'Install Containerd'
   ansible.builtin.include_tasks: 'install-{{ ansible_os_family }}.yml'
 
-- name: 'Include tasks to configure Containerd'
+- name: 'Configure Containerd'
   ansible.builtin.import_tasks: 'configure.yml'

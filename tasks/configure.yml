@@ -36,7 +36,7 @@
           loop_control:
             loop_var: containerd_registry
 
-    - name: 'Ensure the Containerd is running and enabled at boot'
+    - name: 'Ensure Containerd is running and enabled at boot'
       ansible.builtin.systemd:
         name: 'containerd'
         state: 'started'

@@ -5,7 +5,7 @@ containerd_repository_mirror_url: 'https://download.docker.com/linux'
 containerd_repository_gpgkey_url: '{{ _containerd_repository_gpgkey_url }}'
 containerd_repository_release_channel: 'stable'
 
-# Containerd directories
+# The Containerd directories
 containerd_root_path: '/var/lib/containerd'
 containerd_state_path: '/run/containerd'
 containerd_config_path: '/etc/containerd'
