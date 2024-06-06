@@ -14,13 +14,13 @@
           - ansible_facts.services['containerd.service'].status == 'enabled' or
             ansible_facts.services['containerd.service'].status == 'enabled'
 
-    - name: 'Check current Containerd version'
+    - name: 'Check the current Containerd version'
       ansible.builtin.command:
         cmd: '/usr/bin/containerd --version'
       changed_when: false
       register: __containerd_version_check
 
-    - name: 'Version output'
+    - name: 'The Containerd version output'
       ansible.builtin.debug:
         var: __containerd_version_check.stdout_lines[0]
 
