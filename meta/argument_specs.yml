@@ -1,0 +1,96 @@
+---
+argument_specs:
+  main:
+    short_description: 'Containerd'
+    description:
+      - 'An Ansible role to install L(Containerd,https://github.com/containerd/containerd) from the Docker repository and configure it.'
+    author:
+      - 'Melekhin Anton'
+    options:
+      containerd_version:
+        type: 'str'
+        description: 'The version of the Containerd package. By default, Containerd is installed with the latest available version.'
+      containerd_repository_mirror:
+        type: 'str'
+        description: 'The Docker repository mirror.'
+        default: 'https://download.docker.com/linux'
+      containerd_repository_release_channel:
+        type: 'str'
+        description: 'Docker repository release channel.'
+        choices:
+          - 'stable'
+          - 'test'
+        default: 'stable'
+      containerd_root_path:
+        type: 'str'
+        description: 'The root directory for containerd metadata.'
+        default: '/var/lib/containerd'
+      containerd_state_path:
+        type: 'str'
+        description: 'The state directory for containerd.'
+        default: '/run/containerd'
+      containerd_config_path:
+        type: 'str'
+        description: 'The config directory for containerd.'
+        default: '/etc/containerd'
+      containerd_oom_score:
+        type: 'int'
+        description: 'The out of memory score applied to the containerd daemon process.'
+        default: 0
+      containerd_debug_level:
+        type: 'str'
+        description: 'The debug log level.'
+        choices:
+          - 'trace'
+          - 'debug'
+          - 'info'
+          - 'warn'
+          - 'error'
+          - 'fatal'
+          - 'panic'
+        default: 'info'
+      containerd_grpc_max_recv_message_size:
+        type: 'int'
+        description: 'Maximum gRPC receive message size in bytes.'
+        default: 16777216
+      containerd_grpc_max_send_message_size:
+        type: 'int'
+        description: 'Maximum gRPC send message size in bytes.'
+        default: 16777216
+      containerd_metrics_address:
+        type: 'str'
+        description: 'Metrics tcp address.'
+      containerd_metrics_grpc_histogram:
+        type: 'bool'
+        description: 'Turn on or off gRPC histogram metrics.'
+        default: false
+      containerd_max_concurrent_downloads:
+        type: 'int'
+        description: 'Restricts the number of concurrent downloads for each image.'
+        default: 3
+      containerd_max_container_log_line_size:
+        type: 'int'
+        description: 'The maximum log line size in bytes for a container.'
+        default: 16384
+      containerd_sandbox_image:
+        type: 'str'
+        description: 'The image used by sandbox container.'
+        default: 'registry.k8s.io/pause:3.6'
+      containerd_default_runtime_name:
+        type: 'str'
+        description: 'The default runtime name to use.'
+        default: 'runc'
+      containerd_snapshotter:
+        type: 'str'
+        description: 'The default snapshotter used by containerd.'
+        default: 'overlayfs'
+      containerd_runtimes:
+        description: 'A list that contains runtimes configuration settings.'
+      containerd_registries_mirrors:
+        description:
+          - 'A list that contains registry hosts configuration.'
+          - 'See the official L(documentation,https://github.com/containerd/containerd/blob/main/docs/hosts.md).'
+      containerd_registries_auth:
+        description:
+          - 'A list that contains a credential for a specific registry.'
+          - 'See the official L(documentation,https://github.com/containerd/containerd/blob/main/docs/cri/registry.md#configure-registry-credentials).'
