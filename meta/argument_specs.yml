@@ -85,12 +85,24 @@ argument_specs:
         description: 'The default snapshotter used by containerd.'
         default: 'overlayfs'
       containerd_runtimes:
+        type: 'list'
+        elements: 'dict'
         description: 'A list that contains runtimes configuration settings.'
+        default:
+          - name: 'runc'
+            type: 'io.containerd.runc.v2'
+            options:
+              BynaryName: '/usr/bin/runc'
+              SystemdCgroup: true
       containerd_registries_mirrors:
+        type: 'list'
+        elements: 'dict'
         description:
           - 'A list that contains registry hosts configuration.'
           - 'See the official L(documentation,https://github.com/containerd/containerd/blob/main/docs/hosts.md).'
       containerd_registries_auth:
+        type: 'list'
+        elements: 'dict'
         description:
           - 'A list that contains a credential for a specific registry.'
           - 'See the official L(documentation,https://github.com/containerd/containerd/blob/main/docs/cri/registry.md#configure-registry-credentials).'
