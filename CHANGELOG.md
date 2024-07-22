@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.2.1...v1.3.0) (2024-07-22)
+
+
+### Features
+
+* add fedora support ([6e43e0e](https://github.com/antmelekhin/ansible-role-containerd/commit/6e43e0ef4e4ca906673fafb41976a14bb324960f))
+
+
+### Styles
+
+* update common role style ([#4](https://github.com/antmelekhin/ansible-role-containerd/issues/4)) ([9550fc4](https://github.com/antmelekhin/ansible-role-containerd/commit/9550fc45b28b6bbbae16450f3f340353e3088ff1))
+
 ## [1.2.1](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.2.0...v1.2.1) (2024-05-13)
 
 
