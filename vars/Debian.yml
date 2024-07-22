@@ -1,11 +1,4 @@
 ---
-_containerd_architecture_map:
-  x86_64: 'amd64'
-  aarch64: 'arm64'
-
-_containerd_architecture: '{{ _containerd_architecture_map[ansible_architecture] | default(ansible_architecture) }}'
-
 _containerd_repository_gpgkey_url: '{{ containerd_repository_mirror_url }}/{{ ansible_distribution | lower }}/gpg'
-_containerd_local_gpgkey_path: '/usr/share/keyrings/docker-archive-keyring.gpg'
-
+_containerd_repository_gpgkey_keyring: '/usr/share/keyrings/docker-archive-keyring.gpg'
 _containerd_repository: '{{ containerd_repository_mirror_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} {{ containerd_repository_release_channel }}'
