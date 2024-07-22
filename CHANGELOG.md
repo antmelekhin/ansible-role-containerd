@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.3.0...v1.4.0) (2024-07-22)
+
+
+### Features
+
+* add `meta/argument_specs.yml` ([#5](https://github.com/antmelekhin/ansible-role-containerd/issues/5)) ([4d2a3aa](https://github.com/antmelekhin/ansible-role-containerd/commit/4d2a3aa4d060a425ad28e90797c92f084e2bc9e2))
+
 ## [1.3.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.2.1...v1.3.0) (2024-07-22)
 
 
