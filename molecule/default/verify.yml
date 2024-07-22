@@ -11,8 +11,7 @@
         that:
           - ansible_facts.services['containerd.service'].state == 'running' or
             ansible_facts.services['containerd.service'].state == 'active'
-          - ansible_facts.services['containerd.service'].status == 'enabled' or
-            ansible_facts.services['containerd.service'].status == 'enabled'
+          - ansible_facts.services['containerd.service'].status == 'enabled'
 
     - name: 'Check the current Containerd version'
       ansible.builtin.command:
@@ -22,7 +21,7 @@
 
     - name: 'The Containerd version output'
       ansible.builtin.debug:
-        var: __containerd_version_check.stdout_lines[0]
+        msg: 'The current Containerd version is {{ __containerd_version_check.stdout_lines[0].split()[2] }}'
 
     - name: 'Pull hello-world image'
       ansible.builtin.command:

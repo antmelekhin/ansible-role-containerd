@@ -5,4 +5,4 @@ name=Docker CE {{ containerd_repository_release_channel | title }} - $basearch
 baseurl={{ _containerd_repository }}
 enabled=1
 gpgcheck=1
-gpgkey={{ containerd_repository_gpgkey_url }}
+gpgkey={{ _containerd_repository_gpgkey_url }}

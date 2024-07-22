@@ -2,7 +2,6 @@
 # Install Containerd using the Docker repository
 containerd_version: ''
 containerd_repository_mirror_url: 'https://download.docker.com/linux'
-containerd_repository_gpgkey_url: '{{ _containerd_repository_gpgkey_url }}'
 containerd_repository_release_channel: 'stable'
 
 # The Containerd directories
