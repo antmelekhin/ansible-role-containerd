@@ -26,8 +26,8 @@
 
     - name: 'Debian | Add the Containerd repository GPG key'
       ansible.builtin.apt_key:
-        url: '{{ _containerd_repository_gpgkey_url }}'
-        keyring: '{{ _containerd_repository_gpgkey_keyring }}'
+        url: '{{ containerd_repository_gpgkey_url }}'
+        keyring: '{{ __containerd_repository_gpgkey_keyring }}'
         state: 'present'
 
     - name: 'Debian | Add the Containerd repository'
