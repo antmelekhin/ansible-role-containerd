@@ -27,7 +27,7 @@ Requirements
 Role Variables
 --------------
 
-- `containerd_version` The version of the Containerd package. By default, Containerd is installed with the latest available version.
+- `containerd_package_version` The version of the Containerd package. By default, Containerd is installed with the latest available version.
 - `containerd_repository_mirror_url` The URL of Docker repository mirror (default: `https://download.docker.com/linux`).
 - `containerd_repository_release_channel` Docker repository release channel. Available values are: `stable` (default), `test`.
 - `containerd_root_path` The root directory for containerd metadata (default: `/var/lib/containerd`).

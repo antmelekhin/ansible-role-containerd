@@ -7,10 +7,10 @@ argument_specs:
     author:
       - 'Melekhin Anton'
     options:
-      containerd_version:
+      containerd_package_version:
         type: 'str'
         description: 'The version of the Containerd package. By default, Containerd is installed with the latest available version.'
-      containerd_repository_mirror:
+      containerd_repository_mirror_url:
         type: 'str'
         description: 'The Docker repository mirror.'
         default: 'https://download.docker.com/linux'
@@ -76,6 +76,14 @@ argument_specs:
         type: 'str'
         description: 'The image used by sandbox container.'
         default: 'registry.k8s.io/pause:3.6'
+      containerd_cni_bin_dir:
+        type: 'str'
+        description: 'The directory in which the binaries for the plugin is kept.'
+        default: '/opt/cni/bin'
+      containerd_cni_conf_dir:
+        type: 'str'
+        description: 'The directory in which the admin places a CNI conf.'
+        default: '/etc/cni/net.d'
       containerd_default_runtime_name:
         type: 'str'
         description: 'The default runtime name to use.'
