@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.4.0...v1.5.0) (2024-08-03)
+
+
+### Improvements
+
+* update vars ([#6](https://github.com/antmelekhin/ansible-role-containerd/issues/6)) ([aa98ce5](https://github.com/antmelekhin/ansible-role-containerd/commit/aa98ce53311bf2aca7054d6c00036ffc754da29e))
+
 ## [1.4.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.3.0...v1.4.0) (2024-07-22)
 
 
