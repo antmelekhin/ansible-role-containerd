@@ -17,6 +17,7 @@
           - 'docker-selinux.noarch'
           - 'podman'
           - 'runc'
+        state: 'absent'
 
     - name: 'RedHat | Ensure the dependencies are installed'
       ansible.builtin.package:
