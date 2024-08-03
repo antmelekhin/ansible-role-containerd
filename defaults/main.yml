@@ -23,6 +23,9 @@ containerd_max_concurrent_downloads: 3
 containerd_max_container_log_line_size: 16384
 containerd_sandbox_image: 'registry.k8s.io/pause:3.6'
 
+containerd_cni_bin_dir: '/opt/cni/bin'
+containerd_cni_conf_dir: '/etc/cni/net.d'
+
 containerd_default_runtime_name: 'runc'
 containerd_snapshotter: 'overlayfs'
 
