@@ -2,6 +2,22 @@
 - name: 'RedHat | Configure the repository and install the Containerd package'
   become: true
   block:
+    - name: 'RedHat | Remove the conflicting Containerd packages'
+      ansible.builtin.package:
+        name:
+          - 'docker'
+          - 'docker-client'
+          - 'docker-client-latest'
+          - 'docker-common'
+          - 'docker-engine'
+          - 'docker-engine-selinux.noarch'
+          - 'docker-latest'
+          - 'docker-latest-logrotate'
+          - 'docker-logrotate'
+          - 'docker-selinux.noarch'
+          - 'podman'
+          - 'runc'
+
     - name: 'RedHat | Ensure the dependencies are installed'
       ansible.builtin.package:
         name:
