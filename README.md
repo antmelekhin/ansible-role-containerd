@@ -27,9 +27,9 @@ Requirements
 Role Variables
 --------------
 
-All variables that can be overridden are stored in the [defaults/main.yml](defaults/main.yml) file.
-Please refer to the [meta/argument_specs.yml](meta/argument_specs.yml) file for a description of the available variables.
-Similarly, descriptions and defaults for preset variables can be found in the [vars/main.yml](vars/main.yml) file.
+All variables that can be overridden are stored in the [defaults/main.yml](https://github.com/antmelekhin/ansible-role-containerd/blob/main/defaults/main.yml) file.
+Please refer to the [meta/argument_specs.yml](https://github.com/antmelekhin/ansible-role-containerd/blob/main/meta/argument_specs.yml) file for a description of the available variables.
+Similarly, descriptions and defaults for preset variables can be found in the [vars/main.yml](https://github.com/antmelekhin/ansible-role-containerd/blob/main/vars/main.yml) file.
 
 Dependencies
 ------------
