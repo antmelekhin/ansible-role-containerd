@@ -12,25 +12,37 @@ argument_specs:
         description: 'The version of the Containerd package. By default, Containerd is installed with the latest available version.'
       containerd_repository_mirror_url:
         type: 'str'
-        description: 'The Docker repository mirror.'
+        description:
+          - 'The Containerd repository mirror.'
+          - 'By default, the role uses the official Docker repository mirror.'
         default: 'https://download.docker.com/linux'
+      containerd_repository_gpgkey_url:
+        type: 'str'
+        description:
+          - 'Specify where to fetch the Containerd GPG key file from.'
+          - 'By default, the role uses the official Docker GPG key.'
+        default: '{{ __containerd_repository_gpgkey_url }}'
       containerd_repository_release_channel:
         type: 'str'
-        description: 'Docker repository release channel.'
+        description: 'Containerd repository release channel.'
         choices:
           - 'stable'
           - 'test'
         default: 'stable'
-      containerd_root_path:
+      docker_repository:
         type: 'str'
+        description: 'Specify the Containerd repository.'
+        default: '{{ __containerd_repository }}'
+      containerd_root_path:
+        type: 'path'
         description: 'The root directory for containerd metadata.'
         default: '/var/lib/containerd'
       containerd_state_path:
-        type: 'str'
+        type: 'path'
         description: 'The state directory for containerd.'
         default: '/run/containerd'
       containerd_config_path:
-        type: 'str'
+        type: 'path'
         description: 'The config directory for containerd.'
         default: '/etc/containerd'
       containerd_oom_score:
@@ -77,11 +89,11 @@ argument_specs:
         description: 'The image used by sandbox container.'
         default: 'registry.k8s.io/pause:3.6'
       containerd_cni_bin_dir:
-        type: 'str'
+        type: 'path'
         description: 'The directory in which the binaries for the plugin is kept.'
         default: '/opt/cni/bin'
       containerd_cni_conf_dir:
-        type: 'str'
+        type: 'path'
         description: 'The directory in which the admin places a CNI conf.'
         default: '/etc/cni/net.d'
       containerd_default_runtime_name:

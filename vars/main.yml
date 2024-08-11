@@ -1,0 +1,15 @@
+---
+# Default Containerd GPG key
+__containerd_repository_gpgkey_url_dict:
+  Debian: '{{ containerd_repository_mirror_url }}/{{ ansible_distribution | lower }}/gpg'
+  RedHat: "{{ containerd_repository_mirror_url }}/{{ (ansible_distribution == 'Fedora') | ternary('fedora', 'centos') }}/gpg"
+
+__containerd_repository_gpgkey_url: '{{ __containerd_repository_gpgkey_url_dict[ansible_os_family] }}'
+__containerd_repository_gpgkey_keyring: '/usr/share/keyrings/docker-archive-keyring.gpg'
+
+# Default Containerd repository
+__containerd_repository_dict:
+  Debian: '{{ containerd_repository_mirror_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} {{ containerd_repository_release_channel }}'
+  RedHat: "{{ containerd_repository_mirror_url }}/{{ (ansible_distribution == 'Fedora') | ternary('fedora', 'centos') }}/$releasever/$basearch/{{ containerd_repository_release_channel }}"
+
+__containerd_repository: '{{ __containerd_repository_dict[ansible_os_family] }}'
