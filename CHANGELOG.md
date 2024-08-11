@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.5.0...v1.6.0) (2024-08-11)
+
+
+### Improvements
+
+* merge OS-specific variables into the `vars/main.yml` file ([#7](https://github.com/antmelekhin/ansible-role-containerd/issues/7)) ([d948302](https://github.com/antmelekhin/ansible-role-containerd/commit/d9483026b243a1fcad326452fb76ca5c1d4e074c))
+
 ## [1.5.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.4.0...v1.5.0) (2024-08-03)
 
 
