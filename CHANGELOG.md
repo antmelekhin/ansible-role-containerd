@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.6.1](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.6.0...v1.6.1) (2024-10-30)
+
+
+### Code Refactoring
+
+* update `vars/main.yml` file ([f0f7206](https://github.com/antmelekhin/ansible-role-containerd/commit/f0f72066e544bb81aac7066554cc8ed7564173bf))
+
+
+### Continuous Integration
+
+* use `ubuntu-22.04` instead of `ubuntu-latest` ([0bc5543](https://github.com/antmelekhin/ansible-role-containerd/commit/0bc55434cae6026dc3834bc2e6f655983f6babd3))
+
+
+### Styles
+
+* minor fixes ([5660c89](https://github.com/antmelekhin/ansible-role-containerd/commit/5660c89bd0ae3e9c822f25e11cccad79b9876d7d))
+
 ## [1.6.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.5.0...v1.6.0) (2024-08-11)
 
 
