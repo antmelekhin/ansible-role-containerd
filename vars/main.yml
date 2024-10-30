@@ -9,7 +9,7 @@ __containerd_repository_gpgkey_keyring: '/usr/share/keyrings/docker-archive-keyr
 
 # Default Containerd repository
 __containerd_repository_dict:
-  Debian: '{{ containerd_repository_mirror_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} {{ containerd_repository_release_channel }}'
+  Debian: 'deb [signed-by={{ __containerd_repository_gpgkey_keyring }}] {{ containerd_repository_mirror_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} {{ containerd_repository_release_channel }}'
   RedHat: "{{ containerd_repository_mirror_url }}/{{ (ansible_distribution == 'Fedora') | ternary('fedora', 'centos') }}/$releasever/$basearch/{{ containerd_repository_release_channel }}"
 
 __containerd_repository: '{{ __containerd_repository_dict[ansible_os_family] }}'
