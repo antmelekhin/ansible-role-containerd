@@ -1,14 +1,14 @@
 {{ ansible_managed | comment }}
 
-{% if containerd_registry.server is defined %}
-server = "{{ containerd_registry.server }}"
+{% if containerd_registry['server'] is defined %}
+server = "{{ containerd_registry['server'] }}"
 {% endif %}
 
-{% if containerd_registry.mirrors is defined %}
-{% for mirror in containerd_registry.mirrors %}
-[host."{{ mirror.host }}"]
-  capabilities = ["{{ mirror.capabilities | default(['pull', 'resolve']) | flatten | unique | join('", "') }}"]
-  skip_verify = {{ mirror.skip_verify | default('false') | string | lower }}
-  override_path = {{ mirror.override_path | default('false') | string | lower }}
-{% endfor %}
+{% if containerd_registry['mirrors'] is defined %}
+{%   for mirror in containerd_registry['mirrors'] %}
+[host."{{ mirror['host'] }}"]
+  capabilities = ["{{ mirror['capabilities'] | default(['pull', 'resolve']) | flatten | unique | join('", "') }}"]
+  skip_verify = {{ mirror['skip_verify'] | default(false) | string | lower }}
+  override_path = {{ mirror['override_path'] | default(false) | string | lower }}
+{%   endfor %}
 {% endif %}

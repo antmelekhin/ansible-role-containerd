@@ -33,19 +33,19 @@ oom_score = {{ containerd_oom_score }}
 
       [plugins."io.containerd.grpc.v1.cri".containerd.runtimes]
 {% for runtime in containerd_runtimes %}
-        [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.{{ runtime.name }}]
-          runtime_type = "{{ runtime.type }}"
-          runtime_engine = "{{ runtime.engine }}"
-          runtime_root = "{{ runtime.root }}"
+        [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.{{ runtime['name'] }}]
+          runtime_type = "{{ runtime['type'] }}"
+          runtime_engine = "{{ runtime['engine'] }}"
+          runtime_root = "{{ runtime['root'] }}"
 
           [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.{{ runtime.name }}.options]
-{% for key, value in runtime.options.items() %}
-{% if value | bool %}
+{%   for key, value in runtime['options'].items() %}
+{%     if value | bool %}
             {{ key }} = {{ value | lower }}
-{% else %}
+{%     else %}
             {{ key }} = "{{ value }}"
-{% endif %}
-{% endfor %}
+{%     endif %}
+{%   endfor %}
 {% endfor %}
 
     [plugins."io.containerd.grpc.v1.cri".image_decryption]
@@ -58,13 +58,13 @@ oom_score = {{ containerd_oom_score }}
 
       [plugins."io.containerd.grpc.v1.cri".registry.configs]
 {% for registry in containerd_registries_auth if registry['registry'] is defined %}
-{% if (registry['username'] is defined and registry['password'] is defined) or registry['auth'] is defined %}
+{%   if (registry['username'] is defined and registry['password'] is defined) or registry['auth'] is defined %}
         [plugins."io.containerd.grpc.v1.cri".registry.configs."{{ registry['registry'] }}".auth]
-{% if registry['username'] is defined and registry['password'] is defined %}
+{%     if registry['username'] is defined and registry['password'] is defined %}
           username = "{{ registry['username'] }}"
           password = "{{ registry['password'] }}"
-{% else %}
+{%     else %}
           auth = "{{ registry['auth'] }}"
-{% endif %}
-{% endif %}
+{%     endif %}
+{%   endif %}
 {% endfor %}
