@@ -6,7 +6,7 @@ An Ansible role to install [Containerd](https://github.com/containerd/containerd
 Requirements
 ------------
 
-- Supported version of Ansible: 2.12 and highter.
+- Supported version of Ansible: 2.12 and higher. Systems with Python versions below than 3.7 are not compatible with ansible-core 2.17 (see [ansible/ansible#83357](https://github.com/ansible/ansible/issues/83357#issuecomment-2150254754)).
 - Supported platforms:
   - Debian
     - 10
