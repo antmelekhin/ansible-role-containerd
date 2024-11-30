@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.2](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.6.1...v1.6.2) (2024-11-30)
+
+
+### Documentation
+
+* **README:** updated requirements ([5dff82c](https://github.com/antmelekhin/ansible-role-containerd/commit/5dff82c2929200e42d4d35001ad01b062a75b8f4))
+
+
+### Styles
+
+* updated jinja templates ([5eb13dd](https://github.com/antmelekhin/ansible-role-containerd/commit/5eb13dd4fe016c75e924d71b4952e2a0c3e7163c))
+
 ## [1.6.1](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.6.0...v1.6.1) (2024-10-30)
 
 
