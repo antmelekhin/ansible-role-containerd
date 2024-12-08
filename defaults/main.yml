@@ -40,6 +40,6 @@ containerd_runtimes:
       BynaryName: '/usr/bin/runc'
       SystemdCgroup: true
 
-# Configure image registry
+# Configure container registries
 containerd_registries_mirrors: []
 containerd_registries_auth: []

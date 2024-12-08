@@ -36,6 +36,19 @@
           loop_control:
             loop_var: containerd_registry
 
+    - name: 'Find unused registry directories'
+      ansible.builtin.find:
+        paths: '{{ containerd_config_path }}/certs.d'
+        file_type: 'directory'
+        excludes: "{{ containerd_registries_mirrors | map(attribute='namespace') }}"
+      register: __containerd_unused_registry_directories
+
+    - name: 'Remove unused registry directories'
+      ansible.builtin.file:
+        path: '{{ item }}'
+        state: 'absent'
+      loop: "{{ __containerd_unused_registry_directories.files | map(attribute='path') }}"
+
     - name: 'Ensure Containerd is running and enabled at boot'
       ansible.builtin.systemd:
         name: 'containerd'
