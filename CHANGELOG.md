@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.6.2...v1.7.0) (2024-12-08)
+
+
+### Features
+
+* added unused container registry directories cleanup ([7bb623a](https://github.com/antmelekhin/ansible-role-containerd/commit/7bb623a152e71d3883aa4932ad991a202c09b776))
+
 ## [1.6.2](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.6.1...v1.6.2) (2024-11-30)
 
 
