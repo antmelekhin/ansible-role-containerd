@@ -11,6 +11,8 @@
           - 'docker-doc'
           - 'podman-docker'
           - 'runc'
+        autoremove: true
+        purge: true
         state: 'absent'
 
     - name: 'Debian | Ensure the dependencies are installed'

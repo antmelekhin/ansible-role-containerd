@@ -3,7 +3,7 @@
   become: true
   block:
     - name: 'RedHat | Remove the conflicting Containerd packages'
-      ansible.builtin.package:
+      ansible.builtin.yum:
         name:
           - 'docker'
           - 'docker-client'
@@ -17,6 +17,7 @@
           - 'docker-selinux.noarch'
           - 'podman'
           - 'runc'
+        autoremove: true
         state: 'absent'
 
     - name: 'RedHat | Ensure the dependencies are installed'
