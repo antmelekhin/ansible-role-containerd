@@ -43,5 +43,5 @@
         name: "containerd.io{{ ('=' + containerd_package_version) if (containerd_package_version | length) else '' }}"
         allow_downgrade: true
         update_cache: true
-        state: "{{ 'present' if (containerd_package_version | length) else 'latest' }}"
+        state: "{{ (containerd_setup == 'upgrade') | ternary('latest', 'present') }}"
       ignore_errors: '{{ ansible_check_mode }}'
