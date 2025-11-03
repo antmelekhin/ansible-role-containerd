@@ -8,6 +8,7 @@
           - 'containerd'
           - 'docker.io'
           - 'docker-compose'
+          - 'docker-compose-v2'
           - 'docker-doc'
           - 'podman-docker'
           - 'runc'
@@ -42,7 +43,7 @@
 
     - name: 'Debian | Install the Containerd package'
       ansible.builtin.apt:
-        name: "containerd.io{{ ('=' + containerd_package_version) if (containerd_package_version | length) else '' }}"
+        name: '{{ __containerd_package }}'
         allow_downgrade: true
         update_cache: true
         state: "{{ (containerd_setup == 'upgrade') | ternary('latest', 'present') }}"
