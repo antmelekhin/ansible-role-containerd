@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.7.0...v1.8.0) (2025-11-05)
+
+
+### Features
+
+* add `containerd_setup` variable ([#8](https://github.com/antmelekhin/ansible-role-containerd/issues/8)) ([e9f9ac5](https://github.com/antmelekhin/ansible-role-containerd/commit/e9f9ac51aaa7115a028d74a04ae6d9987e54cdff))
+
 ## [1.7.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.6.2...v1.7.0) (2024-12-08)
 
 
