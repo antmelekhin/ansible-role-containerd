@@ -1,0 +1,5 @@
+---
+- name: 'Install Containerd'
+  hosts: all
+  roles:
+    - role: antmelekhin.containerd
