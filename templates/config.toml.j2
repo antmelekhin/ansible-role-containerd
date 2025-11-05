@@ -38,7 +38,7 @@ oom_score = {{ containerd_oom_score }}
           runtime_engine = "{{ runtime['engine'] }}"
           runtime_root = "{{ runtime['root'] }}"
 
-          [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.{{ runtime.name }}.options]
+          [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.{{ runtime['name'] }}.options]
 {%   for key, value in runtime['options'].items() %}
 {%     if value | bool %}
             {{ key }} = {{ value | lower }}

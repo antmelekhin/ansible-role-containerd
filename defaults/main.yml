@@ -1,4 +1,6 @@
 ---
+containerd_setup: 'install'
+
 # Install Containerd using the Docker repository
 containerd_package_version: ''
 containerd_repository_mirror_url: 'https://download.docker.com/linux'

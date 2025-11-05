@@ -13,3 +13,7 @@ __containerd_repository_dict:
   RedHat: "{{ containerd_repository_mirror_url }}/{{ (ansible_distribution == 'Fedora') | ternary('fedora', 'centos') }}/$releasever/$basearch/{{ containerd_repository_release_channel }}"
 
 __containerd_repository: '{{ __containerd_repository_dict[ansible_os_family] }}'
+
+# Containerd package
+__containerd_version_separator: "{{ (ansible_pkg_mgr == 'apt') | ternary('=', '-') }}"
+__containerd_package: "containerd.io{{ (__containerd_version_separator + containerd_package_version) if (containerd_package_version | length) else '' }}"

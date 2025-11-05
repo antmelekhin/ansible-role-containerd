@@ -1,0 +1,32 @@
+---
+- name: 'Uninstall Containerd'
+  become: true
+  block:
+    - name: 'Debian | Uninstall Containerd'
+      when: ansible_os_family == 'Debian'
+      block:
+        - name: 'Debian | Uninstall the Containerd package'
+          ansible.builtin.apt:
+            name: '{{ __containerd_package }}'
+            autoremove: true
+            purge: true
+            state: 'absent'
+
+        - name: 'Debian | Remove the Containerd repository'
+          ansible.builtin.file:
+            path: '/etc/apt/sources.list.d/docker.list'
+            state: 'absent'
+
+    - name: 'RedHat | Uninstall Containerd'
+      when: ansible_os_family == 'RedHat'
+      block:
+        - name: 'RedHat | Uninstall the Containerd package'
+          ansible.builtin.yum:
+            name: '{{ __containerd_package }}'
+            autoremove: true
+            state: 'absent'
+
+        - name: 'RedHat | Remove the Containerd repository'
+          ansible.builtin.file:
+            path: '/etc/yum.repos.d/docker.repo'
+            state: 'absent'

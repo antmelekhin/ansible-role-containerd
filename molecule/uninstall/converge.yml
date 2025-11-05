@@ -1,0 +1,6 @@
+---
+- name: 'Converge'
+  hosts: all
+  roles:
+    - role: antmelekhin.containerd
+      containerd_setup: 'uninstall'

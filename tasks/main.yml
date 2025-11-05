@@ -1,6 +1,12 @@
 ---
 - name: 'Install Containerd'
   ansible.builtin.include_tasks: 'install-{{ ansible_os_family }}.yml'
+  when: containerd_setup in ['install','upgrade']
 
 - name: 'Configure Containerd'
   ansible.builtin.import_tasks: 'configure.yml'
+  when: containerd_setup in ['install','upgrade']
+
+- name: 'Uninstall Containerd'
+  ansible.builtin.import_tasks: 'uninstall.yml'
+  when: containerd_setup in ['uninstall']

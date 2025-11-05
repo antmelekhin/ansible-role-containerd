@@ -6,6 +6,18 @@ argument_specs:
       - 'An Ansible role to install L(Containerd,https://github.com/containerd/containerd) from the Docker repository and configure it.'
     author: 'Melekhin Anton'
     options:
+      containerd_setup:
+        type: 'str'
+        description:
+          - 'Specify whether you want to install, upgrade to the latest version, or remove Containerd.'
+          - "Using 'install' will install the latest version of Containerd on a fresh install."
+          - "Using 'upgrade' will upgrade Containerd to the latest version of on every playbook execution."
+          - "Using 'uninstall' will remove Containerd from your system."
+        choices:
+          - 'install'
+          - 'upgrade'
+          - 'uninstall'
+        default: 'install'
       containerd_package_version:
         type: 'str'
         description: 'The version of the Containerd package. By default, Containerd is installed with the latest available version.'
