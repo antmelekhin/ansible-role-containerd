@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.8.0...v1.8.1) (2026-04-03)
+
+
+### Fixes
+
+* use newer style ansible facts ([6d20f5c](https://github.com/antmelekhin/ansible-role-containerd/commit/6d20f5c4fe53a41616bdc2cbb1d432ae85a8b422))
+
 ## [1.8.0](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.7.0...v1.8.0) (2025-11-05)
 
 
