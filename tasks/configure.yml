@@ -12,7 +12,7 @@
       notify: 'Restart Containerd'
 
     - name: 'Configure Containerd registries'
-      when: containerd_registries_mirrors | length
+      when: containerd_registries_mirrors | length > 0
       block:
         - name: 'Create registry directories'
           ansible.builtin.file:

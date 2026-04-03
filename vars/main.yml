@@ -1,19 +1,19 @@
 ---
 # Default Containerd GPG key
 __containerd_repository_gpgkey_url_dict:
-  Debian: '{{ containerd_repository_mirror_url }}/{{ ansible_distribution | lower }}/gpg'
-  RedHat: "{{ containerd_repository_mirror_url }}/{{ (ansible_distribution == 'Fedora') | ternary('fedora', 'centos') }}/gpg"
+  Debian: "{{ containerd_repository_mirror_url }}/{{ ansible_facts['distribution'] | lower }}/gpg"
+  RedHat: "{{ containerd_repository_mirror_url }}/{{ (ansible_facts['distribution'] == 'Fedora') | ternary('fedora', 'centos') }}/gpg"
 
-__containerd_repository_gpgkey_url: '{{ __containerd_repository_gpgkey_url_dict[ansible_os_family] }}'
+__containerd_repository_gpgkey_url: "{{ __containerd_repository_gpgkey_url_dict[ansible_facts['os_family']] }}"
 __containerd_repository_gpgkey_keyring: '/usr/share/keyrings/docker-archive-keyring.gpg'
 
 # Default Containerd repository
 __containerd_repository_dict:
-  Debian: 'deb [signed-by={{ __containerd_repository_gpgkey_keyring }}] {{ containerd_repository_mirror_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} {{ containerd_repository_release_channel }}'
-  RedHat: "{{ containerd_repository_mirror_url }}/{{ (ansible_distribution == 'Fedora') | ternary('fedora', 'centos') }}/$releasever/$basearch/{{ containerd_repository_release_channel }}"
+  Debian: "deb [signed-by={{ __containerd_repository_gpgkey_keyring }}] {{ containerd_repository_mirror_url }}/{{ ansible_facts['distribution'] | lower }} {{ ansible_facts['distribution_release'] }} {{ containerd_repository_release_channel }}"
+  RedHat: "{{ containerd_repository_mirror_url }}/{{ (ansible_facts['distribution'] == 'Fedora') | ternary('fedora', 'centos') }}/$releasever/$basearch/{{ containerd_repository_release_channel }}"
 
-__containerd_repository: '{{ __containerd_repository_dict[ansible_os_family] }}'
+__containerd_repository: "{{ __containerd_repository_dict[ansible_facts['os_family']] }}"
 
 # Containerd package
-__containerd_version_separator: "{{ (ansible_pkg_mgr == 'apt') | ternary('=', '-') }}"
-__containerd_package: "containerd.io{{ (__containerd_version_separator + containerd_package_version) if (containerd_package_version | length) else '' }}"
+__containerd_version_separator: "{{ (ansible_facts['pkg_mgr'] == 'apt') | ternary('=', '-') }}"
+__containerd_package: "containerd.io{{ (__containerd_version_separator + containerd_package_version) if (containerd_package_version | length > 0) else '' }}"
