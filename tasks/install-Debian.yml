@@ -36,7 +36,7 @@
     - name: 'Debian | Add the Containerd repository'
       ansible.builtin.template:
         src: 'docker.list.j2'
-        dest: '/etc/apt/sources.list.d/docker.list'
+        dest: '{{ __containerd_repository_file }}'
         owner: 'root'
         group: 'root'
         mode: 0644

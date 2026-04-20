@@ -30,7 +30,7 @@
     - name: 'RedHat | Add the Containerd repository'
       ansible.builtin.template:
         src: 'docker.repo.j2'
-        dest: '/etc/yum.repos.d/docker.repo'
+        dest: '{{ __containerd_repository_file }}'
         owner: 'root'
         group: 'root'
         mode: 0644
