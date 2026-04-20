@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.2](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.8.1...v1.8.2) (2026-04-20)
+
+
+### Code Refactoring
+
+* update uninstall tasks ([493420e](https://github.com/antmelekhin/ansible-role-containerd/commit/493420e5af2e7fd436ea70b779921ee4b1a7f77c))
+
+
+### Fixes
+
+* change import_tasks to include_tasks for hidding skipped tasks ([a5aba90](https://github.com/antmelekhin/ansible-role-containerd/commit/a5aba909430cb19eba8cb2b642e07a9ceb8a1b16))
+
 ## [1.8.1](https://github.com/antmelekhin/ansible-role-containerd/compare/v1.8.0...v1.8.1) (2026-04-03)
 
 
