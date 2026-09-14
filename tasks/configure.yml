@@ -8,7 +8,7 @@
         dest: '{{ containerd_config_path }}/config.toml'
         owner: 'root'
         group: 'root'
-        mode: 0640
+        mode: '0640'
       notify: 'Restart Containerd'
 
     - name: 'Configure Containerd registries'
@@ -19,7 +19,7 @@
             path: '{{ containerd_config_path }}/certs.d/{{ containerd_registry.namespace }}'
             owner: 'root'
             group: 'root'
-            mode: 0755
+            mode: '0755'
             state: 'directory'
           loop: '{{ containerd_registries_mirrors }}'
           loop_control:
@@ -31,7 +31,7 @@
             dest: '{{ containerd_config_path }}/certs.d/{{ containerd_registry.namespace }}/hosts.toml'
             owner: 'root'
             group: 'root'
-            mode: 0640
+            mode: '0640'
           loop: '{{ containerd_registries_mirrors }}'
           loop_control:
             loop_var: containerd_registry
